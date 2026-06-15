@@ -1,5 +1,6 @@
 import { analyzeExtractedPage, createAuditSummary, createComparisonReport } from "../shared/analyzer";
 import { extractPageDataFromHtml } from "../shared/extractors";
+import { RESPECT_ROBOTS_TX } from "../shared/build-flags";
 import { MESSAGE_TYPES } from "../shared/messages";
 import { isPathAllowedByRobots } from "../shared/robots";
 import type {
@@ -117,6 +118,10 @@ async function checkRobotsAllowance(
   url: string,
   robotsCache: Map<string, Promise<string | null>> = new Map()
 ): Promise<boolean> {
+  if (!RESPECT_ROBOTS_TX) {
+    return true;
+  }
+
   let parsed: URL;
   try {
     parsed = new URL(url);

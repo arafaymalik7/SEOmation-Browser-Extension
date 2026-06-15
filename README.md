@@ -1,6 +1,6 @@
 # SEOmation Browser Extension
 
-SEOmation is a standalone browser extension for on-page SEO review. It runs fully in the browser and is not coupled to the SEOmation web app.
+SEOmation is a browser extension for on-page SEO review. It runs fully in the browser and is not coupled to the SEOmation web app.
 
 ## Features
 
